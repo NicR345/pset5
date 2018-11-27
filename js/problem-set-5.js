@@ -154,7 +154,20 @@ function credit() {
 function guess() {
 
   // WRITE YOUR EXERCISE 4 CODE HERE
-
+let gNumber = Math.floor((Math.random() * 1000) + 1).toFixed(0);
+let answer = prompt("Guess The Number")
+while (answer != gNumber){
+if (answer > gNumber) {
+  answer = prompt("Guess Lower!")
+}
+if (answer < gNumber){
+  answer= prompt("Guess Higher!")
+}
+}
+if (answer = gNumber) {
+var div = document.getElementById("guess-output");
+div.innerHTML = ("Congrats! You are Correct");
+}
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY

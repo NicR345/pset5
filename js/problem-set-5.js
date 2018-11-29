@@ -154,20 +154,30 @@ function credit() {
 function guess() {
 
   // WRITE YOUR EXERCISE 4 CODE HERE
-let gNumber = Math.floor((Math.random() * 1000) + 1).toFixed(0);
-let answer = prompt("Guess The Number")
-while (answer != gNumber){
-if (answer > gNumber) {
-  answer = prompt("Guess Lower!")
-}
-if (answer < gNumber){
-  answer= prompt("Guess Higher!")
-}
-}
-if (answer = gNumber) {
-var div = document.getElementById("guess-output");
-div.innerHTML = ("Congrats! You are Correct");
-}
+let gNumber = (Math.floor((Math.random() * 1000) + 1)).toFixed(0);
+console.log(gNumber);
+let answer = prompt("Guess The Number!");
+let counter = 0;
+while (answer != gNumber) {
+  while (answer <= 1000 && answer >= 1) {
+  if (answer > gNumber) {
+    counter++;
+    answer = prompt("Guess Lower!");
+  } else if (answer < gNumber) {
+    counter++;
+    answer = prompt("Guess Higher!");
+  } else if (answer == gNumber) {
+    break;
+  }
+  if (answer > 1000 || answer < 1 || answer % 1 != 0) {
+    answer = prompt("Try a valid input between 1 and 1000!");
+  }
+}}
+
+  counter++;
+  var div = document.getElementById("guess-output");
+  div.innerHTML = "Congrats! You are Correct! It took you " + counter + " guess(es)!";
+
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY

@@ -155,7 +155,6 @@ function guess() {
 
   // WRITE YOUR EXERCISE 4 CODE HERE
 let gNumber = (Math.floor((Math.random() * 1000) + 1)).toFixed(0);
-console.log(gNumber);
 let answer = prompt("Guess The Number!");
 let counter = 0;
 while (answer != gNumber) {

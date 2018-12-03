@@ -27,7 +27,30 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
+  while (true) {
+    height = prompt("Please enter an integer between 1-23");
+    height = Number(height);
+    if (height <= 23 && height >= 1 && Number.isInteger(height) && !Number.isNaN(height)) {
+      break;
+  }
+}
+let input = 1;
+let value = "#";
+let vertical = "<code>";
+let blank = height-2;
 
+while (input <= height){
+  let a = "";
+  for (let count=0; count <= blank; count++) {
+    a+='&nbsp;';
+  }
+  blank--;
+  value = value + "#";
+  vertical = vertical + a + value + "</br>";
+  input++;
+}
+ var div = document.getElementById("mario-easy-output")
+div.innerHTML= vertical; vertical + "<code>";
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
@@ -60,7 +83,30 @@ function marioAgain() {
   ////////////// DO NOT MODIFY
   let height; // DO NOT MODIFY
   ////////////// DO NOT MODIFY
-
+  while (true) {
+    height = prompt("Please enter an integer between 1-23");
+    height = Number(height);
+    if (height <= 23 && height >= 1 && Number.isInteger(height) && !Number.isNaN(height)) {
+      break;
+  }
+}
+let input = 1;
+let value = "#";
+let vertical = "<code>";
+let blankbefore = height-2;
+let blankafter = '&nbsp' + '&nbsp';
+while (input <= height){
+  let a = "";
+  for (let count=0; count <= blankbefore; count++) {
+    a+='&nbsp;';
+  }
+  blankbefore--;
+  value = value + "#";
+  vertical = vertical + a + value + blankafter + value + "</br>";
+  input++;
+}
+ var div = document.getElementById("mario-hard-output")
+div.innerHTML= vertical; vertical + "<code>";
   // WRITE YOUR EXERCISE 2 CODE HERE
 
   //////////////////////////////// DO NOT MODIFY
@@ -269,7 +315,10 @@ function gymnastics() {
   let total = 0; //// DO NOT MODIFY
   let scores = []; // DO NOT MODIFY
   /////////////////// DO NOT MODIFY
-
+do {
+  score1 = Number.prompt("Enter a number between 0.0 and 10.0")
+  while (score1 < 0.0 || score2 > 10.0 ||)
+}
   /*
    * NOTE: The 'total' variable should be representative of the sum of all
    *       six of the judges' scores.

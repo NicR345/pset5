@@ -161,7 +161,53 @@ function credit() {
   //////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 3 CODE HERE
-
+  let sum1 = 0;
+  let sum2 = 0;
+ while (true){
+   card = prompt("Enter your credit card number: ");
+    if (Number.isInteger(Number(card))){
+     break;
+ }
+   if(card === null){
+   break;
+       }
+     }
+  if (card !== null) {
+     for (let card1 = card.length - 2; card1 >= 0; card1 -= 2) {
+     let number = Number(card[card1]) * 2;
+     let numberCard = number.toString();
+    let numberCardTotal = 0;
+    for (let card2 = 0 ; card2 < numberCard.length; card2++){
+     numberCardTotal = numberCardTotal + Number(numberCard[card2]);
+         }
+    sum1 = numberCardTotal + sum1;
+    console.log(sum1);
+       }
+    for (let card3 = card.length-1; card3 >= 0; card3 -= 2){
+      sum2 = sum2 + Number(card[card3])
+       }
+        console.log(sum2);
+        if (card.length == 15 && (card[0] == 3 &&(card[1] == 7 || card[1] == 4)) && (sum1 + sum2 )% 10 == 0){
+         let div = document.getElementById("credit-output")
+         div.innerHTML = "<img src ='./images/amex.png'/>";
+       }
+       else if ((card.length == 13 || card.length == 16) && card[0] == 4 && (sum1 + sum2) % 10 == 0){
+         let div = document.getElementById("credit-output")
+         div.innerHTML = "<img src ='./images/visa.png'/>";
+       }
+       else if (card.length == 16 && (card[0] == 5 && (card[1] == 1 || card[1] == 2 || card[1] == 4 || card[1] == 5)) && (sum1 + sum2) % 10 == 0){
+         let div = document.getElementById("credit-output")
+         div.innerHTML = "<img src ='./images/mastercard.png'/>";
+       }
+       else {
+        let div = document.getElementById("credit-output")
+        div.innerHTML = "<img src ='./images/invalid.png'/>";
+       }
+        card=Number(card);
+     } else {
+       let div = document.getElementById("credit-output")
+       div.innerHTML = "";
+     }
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
    *       variable, do not modify it. If you find it necessary to manipulate
@@ -316,9 +362,40 @@ function gymnastics() {
   let scores = []; // DO NOT MODIFY
   /////////////////// DO NOT MODIFY
 do {
-  score1 = Number.prompt("Enter a number between 0.0 and 10.0")
-  while (score1 < 0.0 || score2 > 10.0 ||)
+  score1 = Number(prompt("Enter a number between 0.0 and 10.0"))
+
+} while (score1 < 0.0 || score1 > 10.0 || !Number.isInteger(score1)); {
+scores.push(score1);
 }
+do {
+  score2 = Number(prompt("Enter a number between 0.0 and 10.0"))
+} while (score2 < 0.0 || score2 > 10.0 || !Number.isInteger(score2)); {
+scores.push(score2);
+}
+do {
+  score3 = Number(prompt("Enter a number between 0.0 and 10.0"))
+} while (score3 < 0.0 || score3 > 10.0 || !Number.isInteger(score3)); {
+scores.push(score3);
+}
+do {
+  score4 = Number(prompt("Enter a number between 0.0 and 10.0"))
+} while (score4 < 0.0 || score4 > 10.0 || !Number.isInteger(score4)); {
+scores.push(score4);
+}
+do {
+  score5 = Number(prompt("Enter a number between 0.0 and 10.0"))
+} while (score5 < 0.0 || score5 > 10.0 || !Number.isInteger(score5)); {
+scores.push(score5);
+}
+do {
+  score6 = Number(prompt("Enter a number between 0.0 and 10.0"))
+} while (score6 < 0.0 || score6 > 10.0 || !Number.isInteger(score6)); {
+scores.push(score6);
+}
+let tot = Number(score1) + Number(score2) + Number(score3) + Number(score4) + Number(score5) + Number(score6);
+ let avg = (tot - Math.max(score1, score2, score3, score4, score5, score6) - Math.min(score1, score2, score3, score4, score5, score6)) / 4;
+var div = document.getElementById("gymnastics-output");
+div.innerHTML = "Discarded: " + Math.min(score1, score2, score3, score4, score5, score6) + ", " + Math.max(score1, score2, score3, score4, score5, score6) + "<br />Score: " + avg.toFixed(2);
   /*
    * NOTE: The 'total' variable should be representative of the sum of all
    *       six of the judges' scores.
@@ -378,20 +455,92 @@ function reportCard() {
   let homeworks = 0; // DO NOT MODIFY
   ///////////////////// DO NOT MODIFY
 
+  let testPoints;
+  let quizPoints;
+  let homeworkPoints;
+  let testAvg;
+  let quizAvg;
+  let homeworkAvg;
+  let averg;
   /*
    * NOTE: The 'tests', 'quizzes', and 'homeworks' variables should be
    *       representative of the number of tests, quizzes, and homework
    *       grades the user enters, respectively.
    */
+   //
 
-  /////////////////////// DO NOT MODIFY
-  check('report-card', // DO NOT MODIFY
-    testTotal, ////////// DO NOT MODIFY
-    tests, ////////////// DO NOT MODIFY
-    quizTotal, ////////// DO NOT MODIFY
-    quizzes, //////////// DO NOT MODIFY
-    homeworkTotal, ////// DO NOT MODIFY
-    homeworks /////////// DO NOT MODIFY
-  ); //////////////////// DO NOT MODIFY
-  /////////////////////// DO NOT MODIFY
+    /*
+     * NOTE: The 'tests', 'quizzes', and 'homeworks' variables should be
+     *       representative of the number of tests, quizzes, and homework
+     *       grades the user enters, respectively.
+     */
+
+  testPoints = prompt("Enter a valid score between 0.0 and 100.0 for tests, if you are done with this category enter -1");
+     while (testPoints) {
+       testscore = parseFloat(testPoints);
+    if (testPoints == -1){
+      testPoints = false;
+      break;
+    }
+  else if(testPoints <= 100.00 && 0.0 <= testPoints)
+    {
+      tests += 1;
+      testTotal += testPoints;
+    }
+    else{
+    }
+    testPoints = prompt("Enter a valid score between 0.0 and 100.0 for tests, if you are done with this category enter -1")
+  }
+  quizPoints = prompt("Enter a valid score between 0.0 and 100.0 for quizzes, if you are done with this category enter -1");
+  while (quizPoints) {
+    quizPoints = parseFloat(quizPoints);
+  if (quizPoints == -1){
+   quizPoints = false;
+   break;
+    }
+   else if(quizPoints <= 100.00 && 0.0 <= quizPoints)
+  {
+   quizzes += 1;
+   quizTotal += quizPoints;
+  }
+   else{
+  }
+  quizPoints = prompt("Enter a valid score between 0.0 and 100.0 for quizzes, if you are done with this category enter -1")
+  }
+  homeworkPoints = prompt("Enter a valid score between 0.0 and 100.0 for homework, if you are done with this category enter -1");
+  while (homeworkPoints) {
+    homeworkPoints = parseFloat(homeworkPoints);
+  if (homeworkPoints == -1){
+   homeworkPoints = false;
+   break;
+  }
+   else if(homeworkPoints <= 100.00 && 0.0 <= homeworkPoints)
+  {
+   homeworks += 1;
+   homeworkTotal += homeworkPoints;
+  }
+  else{
+  }
+   homeworkPoints = prompt("Enter a valid score between 0.0 and 100.0 for homework, if you are done with this category enter -1")
+  }
+
+  testAvg = testTotal/tests;
+  quizAvg = quizTotal/quizzes;
+  homeworkAvg = homeworkTotal/homeworks;
+  averg = (testAvg * 0.6) + (quizAvg * 0.3) + (homeworkAvg * 0.1);
+
+  var div = document.getElementById("report-card-output")
+  div.innerHTML = "Tests: " + testAvg.toFixed(2) + "</br>Quizzes: " + quizAvg.toFixed(2) + "</br>Homework: " + homeworkAvg.toFixed(2) + "</br>Grade: " + averg.toFixed(2);
+
+
+   /////////////////////// DO NOT MODIFY
+   check('report-card', // DO NOT MODIFY
+     testTotal, ////////// DO NOT MODIFY
+     tests, ////////////// DO NOT MODIFY
+     quizTotal, ////////// DO NOT MODIFY
+     quizzes, //////////// DO NOT MODIFY
+     homeworkTotal, ////// DO NOT MODIFY
+     homeworks /////////// DO NOT MODIFY
+   ); //////////////////// DO NOT MODIFY
+   /////////////////////// DO NOT MODIFY
 }
